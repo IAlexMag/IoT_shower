@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Hola</h1>
+
+    {% if 'user_id' in session %}
+    <p>Hola Uusario {{ session['user_id'] }}</p>
+    <form method = POST action="{{ url_for('logout') }}">
+        <input type="submit" value="Cerrar sesión">
+    </form>
+    {% else %}
+    <p>No has iniciado sesión</p>
+    <a href="{{ url_for('login') }}">Iniciar sesión</a>
+    {% endif %}
+</body>
+</html>

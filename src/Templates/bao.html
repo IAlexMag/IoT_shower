@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Sistema - Baño</title>
+    <link rel="stylesheet" href="styles/Estilos.css">
+</head>
+<body>
+    <h1>Control de Sistema - Baño</h1>
+    <form id="controlForm" action="/control" method="post">
+        <label for="temperatura_deseada">Temperatura Deseada: <span id="temperaturaValue">40</span>°C</label>
+        <input type="range" id="temperatura_deseada" name="temperatura_deseada" min="0" max="90" step="1" value="40" oninput="updateTemperaturaValue(this.value)">
+        <label for="duracion_minutos">Duración (minutos):</label>
+        <input type="number" id="duracion_minutos" name="duracion_minutos" min="1" value="4">
+        <button type="button" id="startButton" onclick="startControl()">Iniciar Control</button>
+    </form>
+    {% if 'user_id' in session %}
+    <p>Hola Uusario {{ session['user_id'] }}</p>
+    <form method = POST action="{{ url_for('logout') }}">
+        <input type="submit" value="Cerrar sesión">
+    </form>
+    {% else %}
+    <p>No has iniciado sesión</p>
+    <a href="{{ url_for('login') }}">Iniciar sesión</a>
+    {% endif %}
+   </body>
+</html>
