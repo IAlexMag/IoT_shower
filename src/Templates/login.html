@@ -27,5 +27,13 @@
     <form method="POST" action="/reset">
         <input type="submit" value="Olvidé mi contraseña">
     </form>
+
+    <div class="container">
+        <p>{{ mensaje }}</p>
+    </div>
+
+    <form action="{{ url_for('Index') }}" method="POST">
+        <button type="submit">Registrarse</button>
+    </form>
 </body>
 </html>

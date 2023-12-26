@@ -3,4 +3,5 @@
 *.env
 /src/__pycache__
 /src/test
-
+/src/services/__pycache__
+/src/Templates/practica.html
