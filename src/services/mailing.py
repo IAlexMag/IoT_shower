@@ -7,6 +7,8 @@ from decouple import config
 mail = Mail()
 
 def envio_mail(mailing, name, token):
+    '''Obtiene tres argumentos para poder mandar el mail de recuperación junto con el vínculo.
+    '''
     enlace = (url_for('recuperar', token = token, _external = True))
     msg = Message('Test password', sender= config('USER_MAIL'),
                 recipients= [mailing])

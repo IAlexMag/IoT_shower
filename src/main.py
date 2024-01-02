@@ -67,9 +67,15 @@ def login():
         cursor.execute("SELECT * FROM users WHERE email = %s", (inicio_sesion.get('email'),))
         user = cursor.fetchone()
         cursor.close()
+        #print(user[15])
         if user and bcrypt.check_password_hash(user[4], inicio_sesion.get('password')):
             session['user_id'] = user[0]
-            return redirect(url_for('dash'))
+            session['id_rol'] = user[15]
+
+            if session['id_rol'] == 1:
+                return redirect(url_for('dash_admin'))
+            else:
+                return redirect(url_for('dash'))
         else:
             flash('Nombre de usuario o contraseña incorrecto', 'danger')
             return render_template('login.html')
@@ -90,6 +96,14 @@ def logout():
 def dash():
     if 'user_id' in session:
         return render_template('bao.html')
+    else:
+        flash('es necesario inicie sesión')
+        return redirect(url_for('login'))
+
+@app.route('/dash_admin')
+def dash_admin():
+    if 'user_id' in session:
+        return render_template('dashboard.html')
     else:
         flash('es necesario inicie sesión')
         return redirect(url_for('login'))
