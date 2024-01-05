@@ -4,12 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="Recuperar_Contra_D.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
-    <h1>Reset password</h1>
-    <form action="{{ url_for('recuperar', token=token) }}" method="POST">
-    <input type="password" name = "new_pass" required>
-    <br>
-    <button type="submit">Reestablecer contraseña</button></form>
+    <div class="container">
+        <img src="logo.svg" alt="IoTShower" class="logo">
+        <label for="TituloApp">IoTShower</label><br>
+        <h1>Reset password</h1>
+        <form action="{{ url_for('recuperar', token=token) }}" method="POST">
+            <label for="IngreseNW_pw">Ingrese contraseña nueva:</label><br>
+            <input type="password" name = "new_pass" required><br>
+            <label for="Confirme_pw">Confirme contraseña:</label><br>
+            <input type="password" name = "new_pass" required><br>
+            <div class="button-group">
+                <button type="submit">Reestablecer contraseña</button></form>
+            </div>
+        
+    </div>
 </body>
 </html>

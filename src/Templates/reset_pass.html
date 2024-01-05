@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="Reset_pass_D.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Recupera tu contrseña</h1>
-    <form action="/send_pass" method="POST">
-        <input type="email" name="email" placeholder="Email" required>
-        <button type="submit">Enviar</button>
-    </form>
+    <div class="container">
+        <img src="logo.svg" alt="IoTShower" class="logo">
+        <label for="TituloApp">IoTShower</label><br>
+        <h1>Reinicio de contraseña</h1>
+        <form action="/send_pass" method="POST">
+            <label for="email">Ingrese correo electronico:</label><br>
+            <input type="email" name="email" placeholder="Email" required>
+        </form>
+        <div class="Button-group">
+            <button type="Cancelar">Cancelar</button>
+            <button type="submit">Enviar</button>
+        </div>
+    </div>
 </body>
 </html>
