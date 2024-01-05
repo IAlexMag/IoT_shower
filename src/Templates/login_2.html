@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/login_D.css') }}">
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='img/logo.svg')}}" alt="IoTShower" class="logo">
+        <label for="TituloApp">IoTShower</label><br>
+        <label for="Bienvenido">Bienvenido</label><br>
+        <form action="/login" method="POST">
+            <label for="email">Ingrese correo electronico:</label><br>
+            <input type="email" name="email" placeholder="Usuario" required>
+            <label for="email">Ingrese Contraseña:</label><br>
+            <input type="password" name ="password"placeholder="Contraseña" required>
+            <div class="button-group">
+                <button type="submit">Iniciar sesión</button>
+            </div>
+        </form>
+        <form action="{{ url_for('Index') }}" method="POST"><div class="button-group"><button type="submit">Crear Cuenta</button></div></form>
+        <form action=""></form>
+        <div class="Restablecer">
+            <a href="#">Restablecer contraseña</a>
+        </div>
+        <div class="Restablecer">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+        </div>
+    </div>
+</body>
+</html>

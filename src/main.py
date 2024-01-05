@@ -62,7 +62,6 @@ def login():
             'email' : request.form['email'],
             'password' : request.form['password']
         }
-
         cursor = mysql.connection.cursor()
         cursor.execute("SELECT * FROM users WHERE email = %s", (inicio_sesion.get('email'),))
         user = cursor.fetchone()
@@ -78,9 +77,9 @@ def login():
                 return redirect(url_for('dash'))
         else:
             flash('Nombre de usuario o contraseña incorrecto', 'danger')
-            return render_template('login.html')
+            return render_template('login_2.html')
     else:
-        return render_template('login.html')
+        return render_template('login_2.html')
 
 @app.route('/logout', methods = ['GET', 'POST'])
 def logout():
@@ -111,10 +110,10 @@ def dash_admin():
 @app.route('/reset', methods = ['POST'])
 def reset():
     if request.method == 'POST':
-        return render_template('reset_pass.html')
+        return render_template('reset_pass_2.html')
     else:
         flash('Método inváido')
-        return render_template('login.html')
+        return render_template('login_2.html')
 
 @app.route('/send_pass', methods = ['POST'])
 def send_pass():
@@ -141,7 +140,7 @@ def send_pass():
             return redirect(url_for('login'))
     else:
         flash('Método inválido')
-        return render_template('login.html')
+        return render_template('login_2.html')
 
 @app.route('/recuperar/<token>', methods = ['GET', 'POST'])
 def recuperar(token):
