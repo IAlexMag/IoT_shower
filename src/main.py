@@ -107,9 +107,9 @@ def dash_admin():
         flash('es necesario inicie sesión')
         return redirect(url_for('login'))
 
-@app.route('/reset', methods = ['POST'])
+@app.route('/reset', methods = ['GET','POST'])
 def reset():
-    if request.method == 'POST':
+    if request.method == 'POST' or request.method == 'GET':
         return render_template('reset_pass_2.html')
     else:
         flash('Método inváido')

@@ -5,3 +5,5 @@
 /src/test
 /src/services/__pycache__
 /src/Templates/practica.html
+/src/Templates/reset_pass.html
+/src/Templates/login.html
