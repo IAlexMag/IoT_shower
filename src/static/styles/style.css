@@ -1,0 +1,9 @@
+.container-lg{
+    background-color: rgba(rgb(87, 67, 203), green, blue, alpha);
+}
+.titulo {
+    justify-content: left;
+}
+.alerta{
+    justify-content: right;
+}

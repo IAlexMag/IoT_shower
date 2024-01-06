@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Control de Sistema - Baño</title>
+    <link rel="stylesheet" href="styles/Estilos.css">
 </head>
 <body>
-    
-    <h1>Hola</h1>
-
+    <h1>Control de Sistema - Baño</h1>
+    <h2>esta será la plantilla para el usuario admin</h2>
     {% if 'user_id' in session %}
     <p>Hola Uusario {{ session['user_id'] }}</p>
     <form method = POST action="{{ url_for('logout') }}">
@@ -18,5 +18,5 @@
     <p>No has iniciado sesión</p>
     <a href="{{ url_for('login') }}">Iniciar sesión</a>
     {% endif %}
-</body>
+   </body>
 </html>

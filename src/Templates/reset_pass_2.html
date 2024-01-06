@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/Reset_pass_D.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="IoTShower" class="logo">
+        <label for="TituloApp">IoTShower</label><br>
+        <h1>Reinicio de contraseña</h1>
+        <form action="/send_pass" method="POST">
+            <label for="email">Ingrese correo electronico:</label><br>
+            <input type="email" name="email" placeholder="Email" required>
+            <div class="Button-group">
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+        <div class="Button-group">
+            <button type="Cancelar">Cancelar</button>
+        </div>
+    </div>
+</body>
+</html>
