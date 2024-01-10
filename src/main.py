@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, session
+from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
 from flask_mysqldb import MySQL
 from flask_bcrypt import Bcrypt
 from decouple import config
 from flask_mail import Mail
 from services.mailing import envio_mail
+from services.dashboard import saludo_principal
 from datetime import datetime, timedelta
 import bcrypt as bcp
 import re
@@ -12,12 +13,14 @@ import string
 
 #configuraciones iniciales de la aplicación (conexión a BDD)
 app = Flask(__name__)
+
 app.config['SECRET_KEY'] = config('SECRET_KEY')
 app.config['MYSQL_HOST'] = config('MYSQL_HOST')
 app.config['MYSQL_PORT'] = int(config('MYSQL_PORT'))
 app.config['MYSQL_USER'] = config('MYSQL_USER')
 app.config['MYSQL_PASSWORD'] = config('MYSQL_PASS')
 app.config['MYSQL_DB'] = config('MYSQL_DB')
+
 app.config['MAIL_SERVER'] = config('MAIL_SERVER')
 app.config['MAIL_PORT'] = config('MAIL_PORT')
 app.config['MAIL_USE_TLS'] = True
@@ -27,6 +30,13 @@ app.config['MAIL_PASSWORD'] = config('MAIL_PASSWORD')
 mysql = MySQL(app)
 bcrypt=Bcrypt(app)
 mail = Mail(app)
+
+def handle_bad_request(error):
+    response = jsonify({'message': 'Es necesario ingrese un genero'})
+    response.status_code = 400
+    return response
+
+app.register_error_handler(400, handle_bad_request)
 
 # rutas y funciones
 @app.route('/', methods = ['GET', 'POST'])
@@ -40,19 +50,23 @@ def Index():
 @app.route('/registro', methods=['POST'])
 def registro():
     salt = bcp.gensalt()
-    if request.method == 'POST':
-        usuario = {'name': request.form['fname'],
-         'lname': request.form['lname'],
-         'mail': request.form['email'],
-         'password': request.form['password'],
-         'gender': request.form['gender']}
-        usuario['password'] = bcp.hashpw(usuario.get('password').encode('utf-8'),salt)
-        cur = mysql.connection.cursor()
-        cur.execute(f'INSERT INTO {config("MYSQL_TABLE_USERS")} (first_name, last_name, email, contra, gender) VALUES (%s, %s, %s, %s, %s)',
-                        (usuario.get("name"), usuario.get("lname"), usuario.get("mail"), usuario.get("password"), usuario.get("gender")))
-        mysql.connection.commit()
-        cur.close()
-    return redirect (url_for('login'))
+    try:
+        if request.method == 'POST':
+            usuario = {'name': request.form['fname'],
+            'lname': request.form['lname'],
+            'mail': request.form['email'],
+            'password': request.form['password'],
+            'gender': request.form['gender']}
+            usuario['password'] = bcp.hashpw(usuario.get('password').encode('utf-8'),salt)
+            cur = mysql.connection.cursor()
+            cur.execute(f'INSERT INTO {config("MYSQL_TABLE_USERS")} (first_name, last_name, email, contra, gender) VALUES (%s, %s, %s, %s, %s)',
+                            (usuario.get("name"), usuario.get("lname"), usuario.get("mail"), usuario.get("password"), usuario.get("gender")))
+            mysql.connection.commit()
+            cur.close()
+        return redirect (url_for('login'))
+    except ValueError as e:
+        print(f'Error 400: {e}')
+        return handle_bad_request(e)
 
 
 @app.route('/login', methods = ['GET', 'POST'])
@@ -94,7 +108,9 @@ def logout():
 @app.route('/dash')
 def dash():
     if 'user_id' in session:
-        return render_template('bao.html')
+        id_user = session['user_id']
+        name, mensaje = saludo_principal(id_user)
+        return render_template('bao.html', name = name, mensaje = mensaje)
     else:
         flash('es necesario inicie sesión')
         return redirect(url_for('login'))
@@ -170,5 +186,5 @@ def recuperar(token):
 # inicialización del servidor
 if __name__ == '__main__':
     mail.init_app(app)
-    app.run(port = 5500, debug = True)
+    app.run(host='0.0.0.0', port = 7405, debug = True)
 
