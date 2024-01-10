@@ -1,0 +1,162 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('ruta/al/archivo/Moscovita.ttf') format('truetype');
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+    background-color: #f4f4f4;
+    margin-top: 35px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 40px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    background-color: white;
+}
+
+.logo {
+    width: 10%;
+    height: 31px;
+}
+
+label[for="TituloApp"]{
+    color: #00199D;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0px;
+    font-family: Montserrat;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    display: inline-block;
+    margin-bottom: 0.5em;
+    font-style: italic;
+    font-weight: 200;
+    font-size: 15px;
+    line-height: 17px; 
+}
+
+input {
+    width: 100%;
+    height: 25px;
+    padding: 5px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid #878787;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+.Button-group{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto; 
+}
+
+button {
+    width: 45%;
+    height: 35px;
+    padding: 0px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #00199D;
+    color: white;
+    justify-content: center;
+    font-family: Montserrat;
+    margin: 0 auto; 
+
+}
+
+
+
+button:hover {
+    background-color: rgb(24, 89, 228);
+    color: white;
+}
+
+label[for="Gender"] {
+    color: #000000; /* Cambia el color a un tono más oscuro o destacado */
+    font-size: 14px; /* Ajusta el tamaño según tus preferencias */
+    font-weight: 300; /* Puedes aumentar el peso de la fuente para un aspecto más destacado */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas para mayor énfasis */
+}
+
+h1{
+    width: 100%;
+    color: #000;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34px; /* 106.25% */
+    letter-spacing: 0.64px;
+}
+
+/* Agrega estas reglas para cambiar el tamaño y color de los checkboxes */
+input[type="radio"],
+input[type="checkbox"] {
+    transform: scale(0.8); /* Cambia el tamaño, ajusta según tus preferencias */
+    margin-right: 5px; /* Espaciado entre checkbox y etiqueta */
+}
+
+/* Cambia el color de los checkboxes cuando están seleccionados */
+input[type="radio"]:checked,
+input[type="checkbox"]:checked {
+    border-color: #00199D; /* Cambia el color del borde al seleccionar */
+}
+
+/* Cambia el color del círculo interior de los checkboxes */
+input[type="checkbox"]:checked {
+    background-color: #00199D;
+}
+
+/* Cambia el color del texto de las etiquetas asociadas a los checkboxes */
+label[for="female"],
+label[for="male"],
+label[for="abstence"] {
+    color: #00199D;
+    font-weight: 300; /* Puedes ajustar el peso de la fuente según tus preferencias */
+    align-items: center;
+    text-align: center; /* Centra el texto */
+    display: block; /* Hace que el texto esté en su propia línea */
+    margin-bottom: -10; /* Elimina el margen inferior que podría afectar la alineación */
+    font-size: 14px;
+}
+
+/* Ajusta el tamaño del grupo de checkboxes */
+.Checkbox {
+    font-size: 0; /* Elimina el espacio entre los checkboxes */
+}
+
+/* Ajusta el tamaño de los checkboxes */
+input[type="radio"],
+input[type="checkbox"] {
+    transform: scale(0.7); /* Ajusta el tamaño, puedes ajustar según tus preferencias */
+    margin-right: 5px; /* Espaciado entre checkbox y etiqueta */
+    width: 18px;
+    box-shadow: none;
+    margin-bottom:-0px;
+}
+/* Ajusta el tamaño del grupo de checkboxes y alinea verticalmente */
+.Checkbox {
+    font-size: 0; /* Elimina el espacio entre los checkboxes */
+    text-align: right; /* Alinea el grupo de checkboxes a la derecha */
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos dentro del grupo */
+    margin-bottom:20px;
+}

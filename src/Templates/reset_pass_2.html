@@ -19,9 +19,11 @@
                 <button type="submit">Enviar</button>
             </div>
         </form>
-        <div class="Button-group">
-            <button type="Cancelar">Cancelar</button>
-        </div>
+        <form action="{{ url_for('login') }}">
+            <div class="Button-group">
+                <button type="Cancelar">Cancelar</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>
