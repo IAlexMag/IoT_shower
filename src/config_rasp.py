@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import subprocess
 
-app = Flask(__name__)
+app = Flask(__name__,template_folder='templates')
 
 @app.route("/")
 def index():
@@ -26,4 +26,4 @@ def conect_wifi(ssid_wifi, wifi_pass):
         return f'Error: {e}'
 
 if __name__ == '__main__':
-    app.run(port=5555, debug=True)
+    app.run(host='0.0.0.0',port=5555, debug=True)

@@ -6,6 +6,7 @@ from flask_mail import Mail
 from services.mailing import envio_mail
 from services.dashboard import saludo_principal
 from datetime import datetime, timedelta
+#from services.temperature import read_temperature
 import bcrypt as bcp
 import re
 import random
@@ -183,6 +184,12 @@ def recuperar(token):
             return render_template('recuperar_contra.html', token = token)
     else:
         return redirect(url_for('login'))
+    
+'''
+@app.route("/temperature", methods = ['GET'])
+def get_temp():
+    temp = 
+'''
 # inicialización del servidor
 if __name__ == '__main__':
     mail.init_app(app)
