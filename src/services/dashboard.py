@@ -1,6 +1,9 @@
 from flask import Flask, render_template, url_for, jsonify
 from flask_mysqldb import MySQL
 from decouple import config
+import pandas as pd
+import numpy as np
+import seaborn as sb
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = config('SECRET_KEY')
