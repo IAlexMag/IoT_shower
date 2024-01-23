@@ -28,4 +28,3 @@ def saludo_principal(id_user):
         mensaje = user[2]
         return name, mensaje
         
-        

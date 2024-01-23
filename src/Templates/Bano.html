@@ -4,24 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
-
     <title>loTShower</title>
-    <link href="{{ url_for('static', filename = 'img/loTShower_Blanco.svg') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename = 'styles/styles.css') }}">
-    <link rel="shortcut icon" href="{{ url_for ('static', filename = 'img/loTShower_Blanco.svg') }}">
+    <link href="{{ url_for('static', filename='img/loTShower_Blanco.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles_Baño.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/loTShower_Blanco.svg') }}">
+    <form action="/my-handling-form-page" method="post"></form>
 </head>
 <body>
- <!--☰ -->
+    <!---->
     <nav>
         <div class="iot-shower-box">
-            <h2><img src="{{ url_for('static', filename="img/Pato_azul.svg") }}">     loTShower</h2>
+            <h2><img src="{{ url_for('static', filename='img/Pato_azul.svg') }}">     loTShower</h2>
             <div id="menu-icon"><strong>&#9776;</strong></div>
             <div id="submenu">
-                <a href="file:///C:/Users/franc/OneDrive/Desktop/loTShower/menu/index.html"><img src="{{ url_for('static', filename='img/lotshower_gris.svg') }}">  Principal</a>
+                <a href="{{ url_for('dash')}}"><img src="{{ url_for('static', filename='img/lotshower_gris.svg') }}">  Principal</a>
                 <div class="divider"></div>
                 <a href="{{ url_for('profile')}}"><img src="{{ url_for('static', filename='img/Perfil_gris.svg') }}">  Perfil</a>
                 <div class="divider"></div>
-                <a href="{{ url_for('bano')}}"><img src="{{ url_for('static', filename='img/Baño.svg') }}">  Baños</a>
+                <a href="file:///C:/Users/franc/OneDrive/Desktop/loTShower/menu/Bano.html"><img src="{{ url_for('static', filename='img/Baño.svg') }}">  Baños</a>
                 <div class="divider"></div>
                 <a href="file:///C:/Users/franc/OneDrive/Desktop/loTShower/menu/Ducha.html"><img src="{{ url_for('static', filename='img/Ducha.svg') }}"> Ducha</a>
                 <div class="divider"></div>
@@ -31,89 +32,83 @@
             </div>
         </div>
     </nav>
-   <!---->
-   <div id="miContenedor" class="contenedor">
-    <p>Hola {{ name }}, {{ mensaje }} Estas son tus estadísticas de baño</p>
+
+<!-- Titulo Azul -->
+<div class="Tipo_Baño">
+    <h1>Tipos de Baño</h1>
+  </div>
+<!--el menu de navegacion-->
+<div class="container04">
+    <label for="" class="card">Seleciona un tipo de baño:</label>
+    <select name="" id="tipo_bano">
+        <option value="relax">Relajante</option>
+        <option value="fast">Rápido</option>
+        <option value="hot">Caliente</option>
+        <option value="ahorro">Ahorro de agua</option>
+        <option value="cool">Frío</option>
+        <option value="smart">Inteligente</option>
+    </select>
+   
+    <img src="{{ url_for('static', filename='img/information_line.svg') }}">
 </div>
-    <div class="texto" >
-        <div class="Graficas01">
-            <h2> Gasto de agua por día:</h2>
-        <img src="{{ url_for('static', filename='img/Gafrica.png') }}" >
-        
-<!-- Tabla -->
-
-<table border="0" id="resumen" class="resumen-table" class="resumen" onclick="toggleDescription(this)">
-    <thead>
-      <tr>
-        <td class="header-cell" colspan="2">
-          <p><strong>Resumen del Mes</strong></p>
-        </td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="data-cell">Agua Usada</td>
-        <td class="data-cell">Valor</td>
-      </tr>
-      <tr>
-        <td class="data-cell">Costo de Luz</td>
-        <td class="data-cell">Valor</td>
-      </tr>
-      <tr>
-        <td class="data-cell">Costo de Agua</td>
-        <td class="data-cell">Valor</td>
-      </tr>
-    </tbody>
-  </table>
-            <h2> Tiempo y flujos de baño</h2>
-            <img src="{{ url_for('static', filename='img/Gafrica.png') }}" >
-            <!-- Tabla -->
-<table border="0" id="resumen" class="resumen-table" >
-    <thead>
-      <tr>
-        <td class="header-cell" colspan="2">
-          <p><strong>Resumen del Mes</strong></p>
-        </td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="data-cell">Agua Usada</td>
-        <td class="data-cell">Valor</td>
-      </tr>
-      <tr>
-        <td class="data-cell">Costo de Luz</td>
-        <td class="data-cell">Valor</td>
-      </tr>
-      <tr>
-        <td class="data-cell">Costo de Agua</td>
-        <td class="data-cell">Valor</td>
-      </tr>
-    </tbody>
-  </table>
+<!---->
+<div class="Temperatura">
+    <h1>Temperatura</h1>
+  </div>
+  <div class="conter">
+    <div class="slider-container01">
+        <div class="icon-container">
+        <img src="{{ url_for('static', filename='img/icon _Snowflake_.svg') }} " alt="50%">
         </div>
-    </div> 
-
-
-
-
-
-    <!--la barra de icono de navegacion-->
+        <input type ="range" id="mislider" class="slider" min="0" max="50" value="25" step="1">
+        <span class="thumb" id="valorSlider">25</div>
+        <label for="">
+        <div class="icon-container">
+        <img src="{{ url_for('static', filename='img/icon _Alternate Fire_.svg') }}" alt="Icono Fuego">
+        </div>
+        </label>
+     </div>
+         <!-- Etiqueta para mostrar el porcentaje-->
+        <div class="percentage-container">
+            <span id="percentage">0 °C</span>
+        </div>
+        <br>
+    </div>
+ <!--tiempo-->
+ <div class="Tiempo">
+    <h1>Tiempo</h1>
+  </div>
+    <div class="conter02">
+        <div class="Min">
+            <span>
+                <label for="">Ingresa duración de baño:</label> <input type="text" id="duracion">
+            </span>
+        </div>
+    </div>
+ <!--#Variable#-->
+<div class="conter03">
+        <div class="boton">
+            <button onclick="tipoBano()">Iniciar</button>
+            <!--
+            <button type="button" onclick="Iniciar()">Iniciar</button> 
+            -->
+        </div>   
+    </div>
     <div class="navigation">
         <ul>
-            <li class="list active">
-                <a href="file:///C:/Users/franc/OneDrive/Desktop/loTShower/menu/index.html">
+            <li class="list">
+                <a href="{{ url_for('dash') }}">
                 <span class="icon"><img src="{{ url_for('static', filename='img/lotshower_gris.svg') }}"></span>
                 <span class="text">Principal</span>
                 </a>
             </li>
-            <li class="list">
-                <a href="{{ url_for('profile')}}">
+            <li class="list ">
+                <a href="{{ url_for('profile') }}">
                 <span class="icon"><img src="{{ url_for('static', filename='img/Perfil_gris.svg') }}"></span>
                 <span class="text">Perfil</span>
                 </a>
             </li>
-            <li class="list">
+            <li class="list active">
                 <a href="{{ url_for('bano') }}">
                 <span class="icon"><img src="{{ url_for('static', filename='img/Baño.svg') }}"></span>
                 <span class="text">Baños</span>
@@ -140,6 +135,8 @@
             <div class="indicator"></div>
         </ul>
     </div>
+
     <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/bano.js') }}"></script>
 </body>
 </html>

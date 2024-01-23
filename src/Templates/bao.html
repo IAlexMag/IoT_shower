@@ -1,22 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Control de Sistema - Baño</title>
-    <link rel="stylesheet" href="styles/Estilos.css">
+    <title>Slider Example</title>
 </head>
 <body>
-   <h1>Hola {{ name }}, {{ mensaje }} <br> Estas son tus estadisticas de baño</h1>
-    {% if 'user_id' in session %}
-    <p>Hola Uusario {{ session['user_id'] }}</p>
-    <form method = POST action="{{ url_for('logout') }}">
-        <input type="submit" value="Cerrar sesión">
-    </form>
-    {% else %}
-    <p>No has iniciado sesión</p>
-    <a href="{{ url_for('login') }}">Iniciar sesión</a>
-    {% endif %}
-   </body>
+    <input type="range" id="miSlider" min="0" max="100" value="50" step="1">
+    <span id="valorSlider">50</span>
 
+    <button onclick="enviarSlider()">Enviar Slider</button>
+
+    <script>
+        function enviarSlider() {
+            // Obtener el valor actual del slider
+            var valorSlider = document.getElementById("miSlider").value;
+
+            // Enviar el valor al backend de Flask
+            fetch('/ruta_de_tu_backend', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ valor: valorSlider })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Manejar la respuesta del servidor si es necesario
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error al enviar el slider al backend:', error);
+            });
+        }
+
+        // Actualizar el valor del span en tiempo real
+        document.getElementById("miSlider").addEventListener("input", function() {
+            document.getElementById("valorSlider").textContent = this.value;
+        });
+    </script>
+</body>
 </html>
