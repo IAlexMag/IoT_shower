@@ -39,7 +39,7 @@ function toggleDescription(texto) {
     const textBox = texto.querySelector('.text-box');
     textBox.style.display = (textBox.style.display === 'none' || textBox.style.display === '') ? 'block' : 'none';
 }
-/*botones de Baño*/
+/*botones de Baño
 function toggleButton(buttonId) {
             var button = document.getElementById(buttonId);
             button.classList.toggle('selected');
@@ -97,3 +97,4 @@ function toggleButton(buttonId) {
         return false;
     };
 });
+*/

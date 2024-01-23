@@ -5,16 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
     <title>loTShower</title>
+    <link href="/src/loTShower_Blanco.svg">
+    <link rel="stylesheet" href="/src/static/styles/styles.css">
+    <link rel="stylesheet" href="/src/static/styles/styles_Baño.css">
+    <link rel="shortcut icon" href="/src/loTShower_Blanco.svg">
+    <form action="/my-handling-form-page" method="post"></form>
+
+    <!--
     <link href="{{ url_for('static', filename='img/loTShower_Blanco.svg') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles_Baño.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/loTShower_Blanco.svg') }}">
-    <form action="/my-handling-form-page" method="post"></form>
+    <form action="/my-handling-form-page" method="post"></form>-->
 </head>
 <body>
-    <!---->
+  
     <nav>
         <div class="iot-shower-box">
+            <h2><img src="/src/img/Pato_azul.svg">     loTShower</h2>
+            <div id="menu-icon"><strong>&#9776;</strong></div>
+            <div id="submenu">
+                <a href="//src/Templates/Principal.html"><img src="/src/img/lotshower_gris.svg">  Principal</a>
+                <div class="divider"></div>
+                <a href="//src/Templates/Perfil.html"><img src="/src/img/Perfil_gris.svg">  Perfil</a>
+                <div class="divider"></div>
+                <a href="//src/Templates/Baño.html"><img src="/src/img/Baño.svg">  Baños</a>
+                <div class="divider"></div>
+                <a href="//src/Templates/Ducha.html"><img src="/src/img/Ducha.svg"> Ducha</a>
+                <div class="divider"></div>
+                <a href="//src/Templates/Informacion.html"><img src="/src/img/Info.svg"> Información</a>
+                <div class="divider"></div>
+                <a href="//src/Templates/Conexion.html"><img src="/src/img/Conexion.svg"> Conexión</a>
+                <div class="divider"></div>
+                <a href="#"><img src="/src/img/Conexion.svg"> Cerar Seción</a>
+            </div>
+   <!--
+           
             <h2><img src="{{ url_for('static', filename='img/Pato_azul.svg') }}">     loTShower</h2>
             <div id="menu-icon"><strong>&#9776;</strong></div>
             <div id="submenu">
@@ -29,13 +55,13 @@
                 <a href="file:///C:/Users/franc/OneDrive/Desktop/loTShower/menu/Informacion.html"><img src="{{ url_for('static', filename='img/Info.svg') }}"> Información</a>
                 <div class="divider"></div>
                 <a href="file:///C:/Users/franc/OneDrive/Desktop/loTShower/menu/Conexion.html"><img src="{{ url_for('static', filename='img/Conexion.svg') }}"> Conexión</a>
-            </div>
+            </div>-->
         </div>
     </nav>
 
 <!-- Titulo Azul -->
 <div class="Tipo_Baño">
-    <h1>Tipos de Baño</h1>
+    <p>Tipos de Baño</p>
   </div>
 <!--el menu de navegacion-->
 <div class="container04">
@@ -48,40 +74,39 @@
         <option value="cool">Frío</option>
         <option value="smart">Inteligente</option>
     </select>
-   
-    <img src="{{ url_for('static', filename='img/information_line.svg') }}">
+    <img src="/src/img/information_line.svg">
+    
+   <!--el menu de navegacion
+    <img src="{{ url_for('static', filename='img/information_line.svg') }}">-->
 </div>
 <!---->
 <div class="Temperatura">
-    <h1>Temperatura</h1>
+    <p>Temperatura</p>
   </div>
   <div class="conter">
     <div class="slider-container01">
         <div class="icon-container">
-        <img src="{{ url_for('static', filename='img/icon _Snowflake_.svg') }} " alt="50%">
+            <img src="/src/img/icon _Snowflake_.svg">
+            <!-- <img src="{{ url_for('static', filename='img/icon _Snowflake_.svg') }} " alt="50%">-->
         </div>
         <input type ="range" id="mislider" class="slider" min="0" max="50" value="25" step="1">
-        <span class="thumb" id="valorSlider">25</div>
         <label for="">
         <div class="icon-container">
-        <img src="{{ url_for('static', filename='img/icon _Alternate Fire_.svg') }}" alt="Icono Fuego">
+            <img src="/src/img/icon _Alternate Fire_.svg" alt="50%">
+            <!--
+        <img src="{{ url_for('static', filename='img/icon _Alternate Fire_.svg') }}" alt="50%">-->
         </div>
         </label>
      </div>
-         <!-- Etiqueta para mostrar el porcentaje-->
-        <div class="percentage-container">
-            <span id="percentage">0 °C</span>
-        </div>
-        <br>
     </div>
  <!--tiempo-->
  <div class="Tiempo">
-    <h1>Tiempo</h1>
+    <p>Tiempo</p>
   </div>
     <div class="conter02">
         <div class="Min">
             <span>
-                <label for="">Ingresa duración de baño:</label> <input type="text" id="duracion">
+                <label for="">Ingresa Duración de Baño:</label> <input type="text" id="duracion">
             </span>
         </div>
     </div>
@@ -95,6 +120,46 @@
         </div>   
     </div>
     <div class="navigation">
+        <ul>
+            <li class="list">
+                <a href="/src/Templates/Principal.html">
+                <span class="icon"><img src="/src/img/lotshower_gris.svg"></span>
+                <span class="text">Principal</span>
+                </a>
+            </li>
+            <li class="list ">
+                <a href="/src/Templates/Perfil.html">
+                <span class="icon"><img src="/src/img/Perfil_gris.svg"></span>
+                <span class="text">Perfil</span>
+                </a>
+            </li>
+            <li class="list active">
+                <a href="/src/Templates/Bano.html">
+                <span class="icon"><img src="/src/img/Baño.svg"></span>
+                <span class="text">Baños</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="/src/Templates/Ducha.html">
+                <span class="icon"><img src="/src/img/Ducha.svg"></span>
+                <span class="text">Ducha</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="/src/Templates/Informacion.html">
+                <span class="icon"><img src="/src/img/Info.svg"></span>
+                <span class="text">Info</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="/src/Templates/Conexion.html">
+                <span class="icon"><img src="/src/img/Conexion.svg"></span>
+                <span class="text">Conexion</span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+        <!--
         <ul>
             <li class="list">
                 <a href="{{ url_for('dash') }}">
@@ -133,10 +198,12 @@
                 </a>
             </li>
             <div class="indicator"></div>
-        </ul>
+        </ul>-->
     </div>
 
+    <script src="/src/static/scripts/script.js"></script>
+ <!--
     <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
-    <script src="{{ url_for('static', filename='scripts/bano.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/bano.js') }}"></script>-->
 </body>
 </html>
