@@ -6,18 +6,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
 
     <title>loTShower</title>
-    <link href="{{ url_for('static', filename = 'img/loTShower_Blanco.svg') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename = 'styles/styles.css') }}">
-    <link rel="shortcut icon" href="{{ url_for ('static', filename = 'img/loTShower_Blanco.svg') }}">
+    <link href="{{ url_for('static', filename='img/loTShower_Blanco.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles_perfil.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/loTShower_Blanco.svg') }}">
+    <form action="/my-handling-form-page" method="post"></form>
 </head>
 <body>
  <!--☰ -->
     <nav>
         <div class="iot-shower-box">
-            <h2><img src="{{ url_for('static', filename="img/Pato_azul.svg") }}">     loTShower</h2>
+            <h2><img src="{{ url_for('static', filename='img/Pato_azul.svg') }}">     loTShower</h2>
             <div id="menu-icon"><strong>&#9776;</strong></div>
             <div id="submenu">
-                <a href="file:///C:/Users/franc/OneDrive/Desktop/loTShower/menu/index.html"><img src="{{ url_for('static', filename='img/lotshower_gris.svg') }}">  Principal</a>
+                <a href="{{ url_for('dash')}}"><img src="{{ url_for('static', filename='img/lotshower_gris.svg') }}">  Principal</a>
                 <div class="divider"></div>
                 <a href="{{ url_for('profile')}}"><img src="{{ url_for('static', filename='img/Perfil_gris.svg') }}">  Perfil</a>
                 <div class="divider"></div>
@@ -31,84 +33,49 @@
             </div>
         </div>
     </nav>
-   <!---->
-   <div id="miContenedor" class="contenedor">
-    <p>Hola {{ name }}, {{ mensaje }} Estas son tus estadísticas de baño</p>
-</div>
-    <div class="texto" >
-        <div class="Graficas01">
-            <h2> Gasto de agua por día:</h2>
-        <img src="{{ url_for('static', filename='img/Gafrica.png') }}" >
-        
-<!-- Tabla -->
-
-<table border="0" id="resumen" class="resumen-table" class="resumen" onclick="toggleDescription(this)">
-    <thead>
-      <tr>
-        <td class="header-cell" colspan="2">
-          <p><strong>Resumen del Mes</strong></p>
-        </td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="data-cell">Agua Usada</td>
-        <td class="data-cell">Valor</td>
-      </tr>
-      <tr>
-        <td class="data-cell">Costo de Luz</td>
-        <td class="data-cell">Valor</td>
-      </tr>
-      <tr>
-        <td class="data-cell">Costo de Agua</td>
-        <td class="data-cell">Valor</td>
-      </tr>
-    </tbody>
-  </table>
-            <h2> Tiempo y flujos de baño</h2>
-            <img src="{{ url_for('static', filename='img/Gafrica.png') }}" >
-            <!-- Tabla -->
-<table border="0" id="resumen" class="resumen-table" >
-    <thead>
-      <tr>
-        <td class="header-cell" colspan="2">
-          <p><strong>Resumen del Mes</strong></p>
-        </td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="data-cell">Agua Usada</td>
-        <td class="data-cell">Valor</td>
-      </tr>
-      <tr>
-        <td class="data-cell">Costo de Luz</td>
-        <td class="data-cell">Valor</td>
-      </tr>
-      <tr>
-        <td class="data-cell">Costo de Agua</td>
-        <td class="data-cell">Valor</td>
-      </tr>
-    </tbody>
-  </table>
-        </div>
-    </div> 
-
-
-
-
-
-    <!--la barra de icono de navegacion-->
+    <div class="cuadro">
+        <p>Información de Perfil</p>
+    </div>
+    <div class="perfilimg">
+        <img src="{{ url_for('static', filename='img/perfil.svg') }}" alt="50%">
+    </div>
+    
+        <form id="miFormulario" class="miFormulario">  
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" name="usuario" value="{{ mail }}">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" value="{{ name }}"required>
+            <label for="apellidoPaterno">Apellido Paterno:</label>
+            <input type="text" id="apellidoPaterno" name="apellidoPaterno" value="{{ apaterno }}" required>
+            <label for="apellidoMaterno">Apellido Materno:</label>
+            <input type="text" id="apellidoMaterno" name="apellidoMaterno" value="{{ amaterno }}"required>
+        </form>    
+   <div class="button-container">
+                <button class="Cancelar" onclick="cancelar()">Cancelar</button>
+                <button type="button" onclick="guardar()">Guardar</button>
+            </div>
+            <div class="container">
+            {% if 'user_id' in session %}
+            <p>Hola Uusario {{ session['user_id'] }}</p>
+            <form method = POST action="{{ url_for('logout') }}">
+                <input type="submit" value="Cerrar sesión">
+            </form>
+            {% else %}
+            <p>No has iniciado sesión</p>
+            <a href="{{ url_for('login') }}">Iniciar sesión</a>
+            {% endif %}
+            </div>
+ <!--input que se de linea de borde -->
     <div class="navigation">
         <ul>
-            <li class="list active">
-                <a href="file:///C:/Users/franc/OneDrive/Desktop/loTShower/menu/index.html">
+            <li class="list">
+                <a href="{{ url_for('dash')}}">
                 <span class="icon"><img src="{{ url_for('static', filename='img/lotshower_gris.svg') }}"></span>
                 <span class="text">Principal</span>
                 </a>
             </li>
-            <li class="list">
-                <a href="{{ url_for('profile')}}">
+            <li class="list active">
+                <a href="file:///C:/Users/franc/OneDrive/Desktop/loTShower/menu/Perfil.html">
                 <span class="icon"><img src="{{ url_for('static', filename='img/Perfil_gris.svg') }}"></span>
                 <span class="text">Perfil</span>
                 </a>
@@ -140,6 +107,6 @@
             <div class="indicator"></div>
         </ul>
     </div>
-    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='scrits/script.js') }}"></script>
 </body>
 </html>

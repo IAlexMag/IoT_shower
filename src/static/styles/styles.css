@@ -1,0 +1,275 @@
+/* Importación de Montserrat desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/* Uso de Montserrat en tu CSS */
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+:root{
+    --clr:#ffffff;
+}
+body{
+    display: flex;
+    min-height: 100vh;
+    font-size: 14px;
+    background: var(--clr);
+    overflow: hidden; /* Evita el desplazamiento de la página cuando el menú está activo */
+}
+.navigation {
+    width: 100%; /* Cambiado a 100% */
+    height: 106px;
+    background: #ffffff;
+    position: fixed; /* Cambiado a fixed */
+    justify-content: space-between;
+    bottom: 0; /* Añadido bottom: 0 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    color: #00199D;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.363); /* Agregada sombra con 20% de opacidad */
+}
+.navigation ul{
+    display: flex;
+    width: 350px;
+}
+.navigation ul li{
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 90px;
+    z-index: 1;
+}
+.navigation ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    color: #00199D;
+}
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5em;
+    text-align: center;
+    transition: 0.5s;
+    color: transparent;
+}
+.navigation ul li.active a .icon{
+    transform: translateY(-39.5px);
+    /*transform: translateX(10px);*/
+
+    
+}
+.navigation ul li a .text{
+    position: absolute;
+    color: #0a0a0a;
+    font-weight: 400;
+    font-size: 0.75em;
+    letter-spacing: 0.05em;
+    transition: 1s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+.navigation ul li.active a .text{
+    opacity: 10;
+    transform: translateY(-15px);
+}
+
+.indicator{
+    position: absolute;
+    top: -26%;
+    width: 55px;
+    height: 55px;
+    background: #00199D;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 6px solid var(--clr);
+}
+.indicator::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -17px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 40px;
+    box-shadow: 0px -5px 0 0 var(--clr);
+}
+.indicator::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -17px;
+    width: 18px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: 0px -5px 0 0 var(--clr);
+}
+.navigation ul li:nth-child(1).active ~ .indicator{
+    transform: translateX(calc(0px * 0));
+}
+.navigation ul li:nth-child(2).active ~ .indicator{
+    transform: translateX(calc(58.8px * 1));
+}
+.navigation ul li:nth-child(3).active ~ .indicator{
+    transform: translateX(calc(57.5px * 2));
+}
+.navigation ul li:nth-child(4).active ~ .indicator{
+    transform: translateX(calc(59px * 3));
+}
+.navigation ul li:nth-child(5).active ~ .indicator{
+    transform: translateX(calc(59.2px * 4));
+}
+.navigation ul li:nth-child(6).active ~ .indicator{
+    transform: translateX(calc(58.8px * 5));
+}
+  nav {
+    position:absolute; 
+    width: 100%;
+    box-shadow: 0 0 15px rgba(78, 77, 77, 0.699); 
+    color:#00199D;
+    font-size: 20px;
+    background-color: #ffffff;
+    color: #00199D;/*titulo*/
+    padding: 15px;
+  }
+  nav.active {
+    background-color: #00199D;
+    color: #ffffff;/*titulo*/
+  }
+
+  #menu-icon {
+    cursor: pointer;
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-60%); 
+    right: 15px; 
+  }
+
+  #submenu {
+    display: none;
+    background-color: #fff;
+    color: #050505;
+    position: absolute;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.849);
+    z-index: 1; 
+    transform: translateY(26px); 
+    right: auto;
+  }
+ /* es para cambiar el fondo del sub-menu */
+#submenu.active {
+  background-color: #ffffff;
+  color: #070606;
+  
+}
+  #submenu a {
+    display: block;
+    top: 20%;
+    padding: 20px;
+    line-height: 20px;
+    text-decoration: none;
+    color: #080808;
+  }
+  #submenu a img {
+    margin-right: 8px; /* Ajusta el margen entre la imagen y el texto */
+}
+  #submenu a:hover {
+    background-color: #0c2697d7;
+    color: #fff;
+
+  }
+/*SEL.de color 0c2697d7 verificasdo */
+
+  .divider {
+    /*separacion*/
+    border-top: 1px solid #0202023a;
+  }
+  
+  .contenedor {
+    background-color: #00199D;
+    color: white;
+    width: 100%; 
+    position: absolute; 
+    margin-top: 70px;
+    margin-left: 0px;
+    font-size: 20px;
+    padding: 10px;
+    text-align: center;
+    letter-spacing: 1.5px;
+} 
+.texto{
+  margin-top: 45px;
+  align-items: center;
+  width: 1440px;
+  letter-spacing: 1.50px;
+  justify-content: space-between;
+
+}
+.Graficas01 {
+  display: flex-item;
+  flex-direction:column;
+  text-align: center;
+  margin-top: 100px;
+  margin-left: 0px;
+ }
+
+.Graficas01 h2 {
+  color: #151515;
+  font-size: 15px;
+  font-family: 'Montserrat' sans-serif;
+  font-style: italic;
+  margin-bottom: 0px;
+}
+.Graficas01 img {
+  width: 25%;
+}
+  
+/* Estilos para la tabla */
+.resumen-table {
+  margin: 15px auto;
+  text-align: center;
+  border-radius: 10px;
+  width: 100%;
+  font-family: 'Montserrat' sans-serif;
+  background: #ffffff;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+/* Estilos para las celdas de encabezado */
+.header-cell {
+  border-radius: 10px 10px 0 0;
+  background: #00199D;
+  color: #FFF;
+  font-size: 15px;
+  height: 28px;
+  letter-spacing: 1.5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para las celdas de datos */
+.data-cell {
+  color: #000000;
+  font-size: 12px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  color: #151515;
+  font-family:'Montserrat' 'Sora';
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}

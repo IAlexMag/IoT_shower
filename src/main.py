@@ -5,6 +5,7 @@ from decouple import config
 from flask_mail import Mail
 from services.mailing import envio_mail
 from services.dashboard import saludo_principal
+from services.profile import info_users
 from datetime import datetime, timedelta
 #from services.temperature import read_temperature
 import bcrypt as bcp
@@ -111,7 +112,7 @@ def dash():
     if 'user_id' in session:
         id_user = session['user_id']
         name, mensaje = saludo_principal(id_user)
-        return render_template('bao.html', name = name, mensaje = mensaje)
+        return render_template('index.html', name = name, mensaje = mensaje)
     else:
         flash('es necesario inicie sesión')
         return redirect(url_for('login'))
@@ -190,6 +191,24 @@ def recuperar(token):
 def get_temp():
     temp = 
 '''
+
+@app.route('/profile', methods=['GET', 'POST'])
+def profile():
+    if 'user_id' in session:
+        id_user = session['user_id']
+        mail, name, apaterno, amaterno = info_users(id_user)
+        return render_template('Perfil.html', mail = mail, name = name, apaterno = apaterno,
+                               amaterno=amaterno)
+    else:
+        return redirect(url_for('login'))
+
+@app.route('/bano', methods= ['GET', 'POST'])
+def bano():
+    if 'user_id' in session:
+        id_user = session['user_id']
+        return render_template('Bano.html')
+    else:
+        return redirect(url_for('login'))
 # inicialización del servidor
 if __name__ == '__main__':
     mail.init_app(app)
