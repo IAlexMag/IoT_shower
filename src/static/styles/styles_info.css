@@ -1,0 +1,217 @@
+/* Importación de Montserrat desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/* Uso de Montserrat en tu CSS */
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+.Tipo_Baño{
+    position: absolute;
+    background-color: #00199D;
+    width: 100%;
+    height: 5%;
+    font-size: 10px;
+    color: #fff;
+    margin-top: 70px;
+    letter-spacing: 1.50px;
+    padding: 5px;
+}
+
+.container {
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    width: 125px;
+    height: 12.5%;
+    font-size: 14px;
+    color: #00199D;
+    margin-top: 110px;
+    letter-spacing: 1.50px;
+    padding: 5px;
+    border-top-right-radius: 65%; 
+    border-bottom-right-radius: 65%; 
+}
+.product {
+    transform: translateY(4vh); /* Cambiado a 2% del alto de la pantalla */
+    text-align: left;
+ }
+
+ /* Estilo del cuadro de texto */
+ .cuadro-texto {
+    display: flex;
+    transform: translateY(120px);
+    border-radius: 10px; 
+    color: #00199D; 
+    font-size: 12px;
+    font-weight: bold;
+    max-width: 100%;
+    height: 100%;
+    text-align: left;
+    box-sizing: border-box; 
+    margin-left: 127px; 
+}
+/****************************************************************************/
+.container01 {
+    position: absolute;
+    background-color: #00199D;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    width: 125px;
+    height: 12%;
+    font-size: 18px;
+    color: #ffffff;
+    margin-top: 174px;
+    letter-spacing: 1.50px;
+    padding: 5px;
+    border-top-right-radius: 65%; /* Ajusta según tu preferencia */
+    border-bottom-right-radius: 65%; /* Ajusta según tu preferencia */
+}
+ .cuadro-texto01 {
+    display: flex;
+    position: absolute;
+    transform: translateY(195px);
+    border-radius: 10px; 
+    color: #00199D;
+    font-size: 12px;
+    font-weight: bold; 
+    max-width: 100%;
+    height: 100%;
+    text-align: left;
+    box-sizing: border-box; 
+    margin-left: 127px; 
+}
+.product01{
+    transform: translateY(4vh); /* Cambiado a 2% del alto de la pantalla */
+    text-align: left;
+ }
+/****************************************************************************/
+.container02 {
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    width: 125px;
+    height: 12.5%;
+    font-size: 15px;
+    color: #00199D;
+    margin-top: 250px;
+    letter-spacing: 1.50px;
+    padding: 10px;
+    border-top-right-radius: 65%; /* Ajusta según tu preferencia */
+    border-bottom-right-radius: 65%; /* Ajusta según tu preferencia */
+}
+ .cuadro-texto02 {
+    display: flex;
+    position: absolute;
+    transform: translateY(270px);
+    border-radius: 10px; 
+    color: #00199D; 
+    font-size: 12px;
+    font-weight: bold;
+    max-width: 100%;
+    height: 100%;
+    text-align: left;
+    box-sizing: border-box; 
+    margin-left: 127px; 
+}
+.product02 {
+    transform: translateY(2vh); /* Cambiado a 2% del alto de la pantalla */
+    text-align: left;
+ }
+/****************************************************************************/
+.container03 {
+    position: absolute;
+    background-color: #00199D;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    width: 125px;
+    height: 12.5%;
+    font-size: 18px;
+    color: #ffffff;
+    margin-top: 328px;
+    letter-spacing: 1.50px;
+    padding: 10px;
+    border-top-right-radius: 65%; /* Ajusta según tu preferencia */
+    border-bottom-right-radius: 65%; /* Ajusta según tu preferencia */
+}
+ .cuadro-texto03 {
+    display: flex;
+    position: absolute;
+    transform: translateY(345px);
+    border-radius: 10px; 
+    color: #00199D; 
+    font-size: 12px;
+    font-weight: bold;
+    max-width: 100%;
+    height: 100%;
+    text-align: left;
+    box-sizing: border-box; 
+    margin-left: 127px; 
+}
+.product03 {
+    transform: translateY(3vh); /* Cambiado a 2% del alto de la pantalla */
+    text-align: left;
+ }
+/****************************************************************************/
+.container04 {
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    width: 125px;
+    height: 12.5%;
+    font-size: 18px;
+    color: #00199D;
+    margin-top: 414px;
+    letter-spacing: 1.50px;
+    padding: 10px;
+    border-top-right-radius: 65%; /* Ajusta según tu preferencia */
+    border-bottom-right-radius: 65%; /* Ajusta según tu preferencia */
+}
+ .cuadro-texto04 {
+    display: flex;
+    position: absolute;
+    transform: translateY(430px);
+    border-radius: 9px; 
+    color: #00199D; 
+    max-width: 100%;
+    height: 100%;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    box-sizing: border-box; 
+    margin-left: 127px; 
+}
+.product04 {
+    transform: translateY(3vh); /* Cambiado a 2% del alto de la pantalla */
+    text-align: left;
+ }
+/****************************************************************************/
+.container05 {
+    position: absolute;
+    background-color: #00199D;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    width: 125px;
+    height: 12.5%;
+    font-size: 14px;
+    color: #ffffff;
+    margin-top: 510px;
+    letter-spacing: 1.50px;
+    padding: 10px;
+    border-top-right-radius: 65%; /* Ajusta según tu preferencia */
+    border-bottom-right-radius: 65%; /* Ajusta según tu preferencia */
+}
+ .cuadro-texto05 {
+    display: flex;
+    position: absolute;
+    transform: translateY(535px);
+    border-radius: 9px; 
+    color: #00199D;
+    font-size: 12px;
+    font-weight: bold; 
+    max-width: 100%;
+    height: 100%;
+    text-align: left;
+    box-sizing: border-box; 
+    margin-left: 127px; 
+}
+.product05 {
+    transform: translateY(3vh); /* Cambiado a 2% del alto de la pantalla */
+    text-align: left;
+ }

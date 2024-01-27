@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
+    <title>IoTShower</title>
+  
+    <link href="{{ url_for('static', filename='img/loTShower_Blanco.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles_Ducha.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/loTShower_Blanco.svg') }}">
+    <form action="/my-handling-form-page" method="post"></form>
+</head>
+<body>
+ 
+    <nav>
+        <div class="iot-shower-box">
+            <h2><img src="{{ url_for('static', filename='img/Pato_azul.svg') }}">     loTShower</h2>
+            <div id="menu-icon"><strong>&#9776;</strong></div>
+            <div id="submenu">
+                <a href="{{ url_for('dash')}}"><img src="{{ url_for('static', filename='img/lotshower_gris.svg') }}">  Principal</a>
+                <div class="divider"></div>
+                <a href="{{ url_for('profile')}}"><img src="{{ url_for('static', filename='img/Perfil_gris.svg') }}">  Perfil</a>
+                <div class="divider"></div>
+                <a href="{{ url_for('bano') }}"><img src="{{ url_for('static', filename='img/Baño.svg') }}">  Baños</a>
+                <div class="divider"></div>
+                <a href="{{ url_for('ducha') }}"><img src="{{ url_for('static', filename='img/Ducha.svg') }}"> Ducha</a>
+                <div class="divider"></div>
+                <a href="{{ url_for('info') }}"><img src="{{ url_for('static', filename='img/Info.svg') }}"> Información</a>
+                <div class="divider"></div>
+                <a href="{{ url_for('conect') }}"><img src="{{ url_for('static', filename='img/Conexion.svg') }}"> Conexión</a>
+                <div class="divider"></div>
+                <a href="{{ url_for('logout') }}"><img src="{{ url_for('static', filename='img/Conexion.svg') }}" alt=""> Cerrar sesión</a>
+            </div>
+        </div>
+    </nav>
+
+<!-- Titulo Azul -->
+<div class="Hora_Programada">
+    <h1>Hora Programada</h1>
+  </div>
+<div class="Group266" >
+    <input type="number" id="hora" name="hora" min="0" max="23" placeholder="Hora" required>
+    <input type="number" id="minutos" name="minutos" min="0" max="59" placeholder="Minutos" required>
+</div>
+<div class="cuadro">
+    <div class="Am">Am</div>
+    <div class="Pm">Pm</div>
+</div>
+
+<div class="DiasProgramados">
+    <h1>Dias Programados</h1>
+  </div>
+  
+  <div class="container04">
+    <label class="card">
+        <input type="checkbox" value="Lunes">Lunes
+    </label>
+    <label class="card">
+        <input type="checkbox" value="Martes">Martes
+    </label>
+    <label class="card">
+            <input type="checkbox" value="Miercoles">Miercoles
+        </label><br>
+    <label class="card">
+        <input type="checkbox" value="Jueves">Jueves
+    </label>
+    <label class="card">
+        <input type="checkbox" value="Viernes">Viernes
+    </label>
+    <label class="card">
+        <input type="checkbox" value="Sabado">Sabado
+    </label>
+    <label class="card">
+        <input type="checkbox" value="Domingo">Domingo
+    </label>
+</div>
+
+<div class="Temperatura">
+    <h1>Temperatura</h1>
+  </div>
+
+  <div class="conter">
+    <div class="slider-container01">
+        <div class="icon-container">
+        <img src="{{ url_for('static', filename='img/icon _Snowflake_.svg') }} " alt="50%">
+        </div>
+        <input type ="range" id="mislider" class="slider" min="0" max="50" value="25" step="1">
+        <label for="">
+        <div class="icon-container">
+        <img src="{{ url_for('static', filename='img/icon _Alternate Fire_.svg') }}" alt="Icono Fuego">
+        </div>
+     </div>
+        <div class="percentage-container">
+            <span id="percentage">0 °C</span>
+        </div>
+        <br>
+    </div>
+
+    <div class="Tiempo">
+        <h1>Tiempo</h1>
+      </div>
+
+      <div class="conter_t">
+        <div class="slider-container02">
+            <div class="icon-container">
+                <p >3 minutos</p>
+            </div>
+            <input type ="range" id="mislider" class="slider" min="3" max="20" value="25" step="1">
+            <label for="">
+            <div class="icon-container">
+                <p class="maximo">20 minutos</p>
+            </div>
+         </div>
+      </div> 
+<div class="button-container">
+            <button class="Cancelar" onclick="cancelar()">Cancelar</button>
+            <button type="button" onclick="guardar()">Guardar</button>
+        </div>
+    <div class="navigation">
+        <ul>
+            <li class="list">
+                <a href="{{ url_for('dash')}}">
+                <span class="icon"><img src="{{ url_for('static', filename='img/lotshower_gris.svg') }}"></span>
+                <span class="text">Principal</span>
+                </a>
+            </li>
+            <li class="list active">
+                <a href="{{ url_for('profile') }}">
+                <span class="icon"><img src="{{ url_for('static', filename='img/Perfil_gris.svg') }}"></span>
+                <span class="text">Perfil</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="{{ url_for('bano') }}">
+                <span class="icon"><img src="{{ url_for('static', filename='img/Baño.svg') }}"></span>
+                <span class="text">Baños</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="{{ url_for('ducha') }}">
+                <span class="icon"><img src="{{ url_for('static', filename='img/Ducha.svg') }}"></span>
+                <span class="text">Ducha</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="{{ url_for('info')}}">
+                <span class="icon"><img src="{{ url_for('static', filename='img/Info.svg') }}"></span>
+                <span class="text">Info</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="{{ url_for('conect') }}">
+                <span class="icon"><img src="{{ url_for('static', filename='img/Conexion.svg') }}"></span>
+                <span class="text">Conexion</span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/ducha.js')}}"></script>
+</body>
+</html>

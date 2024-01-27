@@ -7,6 +7,9 @@ from services.mailing import envio_mail
 from services.dashboard import saludo_principal
 from services.profile import info_users
 from datetime import datetime, timedelta
+from services.bano import sesion_bath
+from threading import Thread
+from services.PID_Completo import main
 #from services.temperature import read_temperature
 import bcrypt as bcp
 import re
@@ -33,6 +36,10 @@ mysql = MySQL(app)
 bcrypt=Bcrypt(app)
 mail = Mail(app)
 
+'''
+def run_control(data):
+    main(data)
+'''
 def handle_bad_request(error):
     response = jsonify({'message': 'Es necesario ingrese un genero'})
     response.status_code = 400
@@ -99,7 +106,7 @@ def login():
 
 @app.route('/logout', methods = ['GET', 'POST'])
 def logout():
-    if request.method == 'POST':
+    if request.method == 'POST' or request.method == 'GET':
         session.pop('user_id', None)
         return redirect(url_for('login'))
     else:
@@ -202,11 +209,53 @@ def profile():
     else:
         return redirect(url_for('login'))
 
-@app.route('/bano', methods= ['GET', 'POST'])
+@app.route('/bano', methods= ['GET'])
 def bano():
     if 'user_id' in session:
         id_user = session['user_id']
         return render_template('Bano.html')
+    else:
+        return redirect(url_for('login'))
+@app.route('/pro_bano', methods = ['GET','POST'])
+def pro_bano():
+     if request.method == 'POST' and 'user_id' in session:
+        data = request.get_json()
+        print(data)
+        id_user = session['user_id']
+        sesion_bath(data, id_user)
+        #params_pid(data)
+        main(data)
+        #control_thread = Thread(target=run_control, args=(data,))
+        #control_thread.start()
+        #flash('Se ha programado tu baño con éxito')
+        return jsonify({'message': 'Se ha programado tu baño con éxito',
+                        'params': data})
+     else:
+         #flash('Necesitas programar tu baño')
+         return jsonify({'message': 'necesitas programar tu baño'})
+
+@app.route('/ducha_pro', methods=['GET'])
+def ducha():
+    if 'user_id' in session:
+        id_user = session['user_id']
+        return render_template('Ducha.html')
+    else:
+        return redirect(url_for('login'))
+
+
+@app.route('/info', methods=['GET'])
+def info():
+    if 'user_id' in session:
+        id_user = session['user_id']
+        return render_template('informacion.html')
+    else:
+        return redirect(url_for('login'))
+    
+@app.route('/conexion', methods=['GET'])
+def conect():
+    if 'user_id' in session:
+        id_user = session['user_id']
+        return render_template('Conexion.html')
     else:
         return redirect(url_for('login'))
 # inicialización del servidor
