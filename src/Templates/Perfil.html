@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
-
     <title>loTShower</title>
+      <!--   
+    <link href="{{ url_for('static', filename='img/loTShower_Blanco.svg') }}">
+    <link rel="stylesheet" href="/src/static/styles/styles.css">
+    <link rel="stylesheet" href="/src/static/styles/styles_perfil.css">
+    <link rel="shortcut icon" href="/src/loTShower_Blanco.svg">
+    <form action="/my-handling-form-page" method="post"></form>
+ -->
+    
     <link href="{{ url_for('static', filename='img/loTShower_Blanco.svg') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles_perfil.css') }}">
@@ -23,6 +30,24 @@
                 <div class="divider"></div>
                 <a href="{{ url_for('profile')}}"><img src="{{ url_for('static', filename='img/Perfil_gris.svg') }}">  Perfil</a>
                 <div class="divider"></div>
+                <a href="{{ url_for('bano') }}"><img src="{{ url_for('static', filename='img/Baño.svg')}}">  Baños</a>
+                <div class="divider"></div>
+                <a href="{{ url_for('ducha') }}"><img src="{{ url_for('static', filename='img/Ducha.svg')}}"> Ducha</a>
+                <div class="divider"></div>
+                <a href="{{ url_for('info') }}"><img src="{{ url_for('static', filename='img/Info.svg') }}"> Información</a>
+                <div class="divider"></div>
+                <a href="{{ url_for('conect') }}"><img src="{{ url_for('static', filename='img/Conexion.svg') }}"> Conexión</a>
+                <div class="divider"></div>
+                <a href="{{ url_for('logout') }}"><img src="{{ url_for('static', filename='img/Conexion.svg') }}"> Cerar sesión</a>
+            </div>
+            
+            
+            <!--
+            <div id="submenu">
+                <a href="//src/Templates/Perfil.html"><img src="/src/img/lotshower_gris.svg">  Principal</a>
+                <div class="divider"></div>
+                <a href="{{ url_for('profile')}}"><img src="{{ url_for('static', filename='img/Perfil_gris.svg') }}">  Perfil</a>
+                <div class="divider"></div>
                 <a href="{{ url_for('bano')}}"><img src="{{ url_for('static', filename='img/Baño.svg') }}">  Baños</a>
                 <div class="divider"></div>
                 <a href="file:///C:/Users/franc/OneDrive/Desktop/loTShower/menu/Ducha.html"><img src="{{ url_for('static', filename='img/Ducha.svg') }}"> Ducha</a>
@@ -30,7 +55,7 @@
                 <a href="file:///C:/Users/franc/OneDrive/Desktop/loTShower/menu/Informacion.html"><img src="{{ url_for('static', filename='img/Info.svg') }}"> Información</a>
                 <div class="divider"></div>
                 <a href="file:///C:/Users/franc/OneDrive/Desktop/loTShower/menu/Conexion.html"><img src="{{ url_for('static', filename='img/Conexion.svg') }}"> Conexión</a>
-            </div>
+            </div>-->
         </div>
     </nav>
     <div class="cuadro">
@@ -54,19 +79,50 @@
                 <button class="Cancelar" onclick="cancelar()">Cancelar</button>
                 <button type="button" onclick="guardar()">Guardar</button>
             </div>
-            <div class="container">
-            {% if 'user_id' in session %}
-            <p>Hola Uusario {{ session['user_id'] }}</p>
-            <form method = POST action="{{ url_for('logout') }}">
-                <input type="submit" value="Cerrar sesión">
-            </form>
-            {% else %}
-            <p>No has iniciado sesión</p>
-            <a href="{{ url_for('login') }}">Iniciar sesión</a>
-            {% endif %}
-            </div>
  <!--input que se de linea de borde -->
     <div class="navigation">
+        <!--
+        <ul>
+            <li class="list">
+                <a href="/src/Templates/Principal.html">
+                <span class="icon"><img src="/src/img/lotshower_gris.svg"></span>
+                <span class="text">Principal</span>
+                </a>
+            </li>
+            <li class="list active">
+                <a href="/src/Templates/Perfil.html">
+                <span class="icon"><img src="/src/img/Perfil_gris.svg"></span>
+                <span class="text">Perfil</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="/src/Templates/Bano.html">
+                <span class="icon"><img src="/src/img/Baño.svg"></span>
+                <span class="text">Baños</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="/src/Templates/Ducha.html">
+                <span class="icon"><img src="/src/img/Ducha.svg"></span>
+                <span class="text">Ducha</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="/src/Templates/Informacion.html">
+                <span class="icon"><img src="/src/img/Info.svg"></span>
+                <span class="text">Info</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="/src/Templates/Conexion.html">
+                <span class="icon"><img src="/src/img/Conexion.svg"></span>
+                <span class="text">Conexion</span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+    -->
+        
         <ul>
             <li class="list">
                 <a href="{{ url_for('dash')}}">
@@ -87,19 +143,19 @@
                 </a>
             </li>
             <li class="list">
-                <a href="file:///C:/Users/franc/OneDrive/Desktop/loTShower/menu/Ducha.html">
+                <a href="{{ url_for('ducha') }}">
                 <span class="icon"><img src="{{ url_for('static', filename='img/Ducha.svg') }}"></span>
                 <span class="text">Ducha</span>
                 </a>
             </li>
             <li class="list">
-                <a href="file:///C:/Users/franc/OneDrive/Desktop/loTShower/menu/Informacion.html">
+                <a href="{{ url_for('info') }}">
                 <span class="icon"><img src="{{ url_for('static', filename='img/Info.svg') }}"></span>
                 <span class="text">Info</span>
                 </a>
             </li>
             <li class="list">
-                <a href="file:///C:/Users/franc/OneDrive/Desktop/loTShower/menu/Conexion.html">
+                <a href="{{ url_for('conect') }}">
                 <span class="icon"><img src="{{ url_for('static', filename='img/Conexion.svg') }}"></span>
                 <span class="text">Conexion</span>
                 </a>
@@ -107,6 +163,9 @@
             <div class="indicator"></div>
         </ul>
     </div>
-    <script src="{{ url_for('static', filename='scrits/script.js') }}"></script>
+    <!--
+    <script src="/src/static/scripts/script.js"></script>
+    -->
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
 </body>
 </html>

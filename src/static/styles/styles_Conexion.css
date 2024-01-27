@@ -1,0 +1,217 @@
+/* Importación de Montserrat desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/* Uso de Montserrat en tu CSS */
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+*{
+    align-items:baseline;
+    font-family: 'Montserrat', sans-serif;
+}
+.resumen-table02 {
+    position: absolute;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px; 
+    margin: 250px auto;
+    text-align: center; 
+    background: #ffffff;
+    transform: translateY(-190px);  
+  }
+  .resumen-table02 th {
+    background-color: #00199D; 
+    color: #fff;
+    font-size: 18px;
+  }
+  .resumen-table02 td {
+    border: transparent;
+    text-align: center;
+    color: #000000;
+    font-family: Montserrat;
+    font-size: 14px;
+    padding: 5px;
+  }
+
+.Vector1{
+  position: absolute;
+  width: 215%;
+  height: 0px;
+  margin-top: 225px;
+  border: 1px #001a9da9 solid;
+}
+
+@media screen and (max-width: 600px) {
+  #cuadro {
+    flex-direction: column; /* Cambia la dirección del flex container a columna */
+    align-items: center; /* Centra los elementos en el eje transversal */
+  }
+}
+.blanco{
+  color: #fff;
+}
+
+/*Botones de Fria*/
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 80px;
+  height:50px;
+  align-items: center;
+}
+
+.button-toggle {
+  background-color: #ffffff;
+  border: none;
+  color: rgb(5, 153, 0);
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+}
+.button-toggle2 {
+  background-color: #ffffff;
+  border: none;
+  color: #FF0000;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+  margin-right:10px;
+}
+
+.button-toggle:hover {
+  background-color: #14b41aab;
+}
+.button-toggle:active {
+  background-color: #ffffff;
+  box-shadow: 0px 2px 5px rgba(0,0,0,5);
+  transform: translateY(2px);
+}
+.button-toggle2:hover {
+  background-color: #ec2727b7;
+}
+.button-toggle2:active {
+  background-color: #ffffff;
+  box-shadow: 0px 2px 5px rgba(0,0,0,5);
+  transform: translateY(2px);
+}
+.input-container {
+  width: 70%;
+  display: inline-flex;
+  padding: 10px; /* Añadir espacio alrededor del contenedor */
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+input {
+  width: calc(100% - 4px); /* Ancho de los campos de entrada con espacio interior */
+  padding: 2px;
+  margin: 0 5px; /* Espacio entre los campos de entrada */
+}
+
+#RED {
+  color: red; /* Color para el campo con ID RED */
+}
+
+#GREEN {
+  color: green; /* Color para el campo con ID GREEN */
+}
+
+#BLACK {
+  color: black; /* Color para el campo con ID BLACK */
+}
+.TemperaturaSalida {
+  position:absolute;
+  transform: translateY(230px);
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+}
+.Blanco {
+  width: 50%;
+  background-color: #ffffff; /* Color de fondo opcional para la primera columna */
+  padding: 15px;
+  color: #00199D;
+  text-align: center;
+}
+.columna2 {
+  width: 50%;
+  background-color: #ffffff; 
+  text-align: center;
+  padding: 15px; 
+}
+.Azul {
+  width: 50%;
+  background-color: #00199D; 
+  padding: 15px;
+  color: #ffffff;
+  text-align: center;
+}
+.TempAguaCaliente{
+  position:absolute;
+  transform: translateY(280px);
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+}
+.TempAguaFria{
+  position:absolute;
+  transform: translateY(330px);
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+}
+.ValvulaFria{
+  position:absolute;
+  transform: translateY(380px);
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+}
+.ValvulaCaliente{
+  position:absolute;
+  transform: translateY(430px);
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+}
+.LedRGB{
+  position:absolute;
+  transform: translateY(480px);
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+}
+
+.Blanco2 {
+  width: 50%;
+  background-color: #ffffff; /* Color de fondo opcional para la primera columna */
+  padding: 15px;
+  color: #00199D;
+  text-align: center;
+}
+.columna3 {
+  width: 50%;
+  background-color: #ffffff; 
+  text-align: center;
+  
+}
+.Azul2 {
+  width: 50%;
+  background-color: #00199D; 
+  padding: 15px;
+  color: #ffffff;
+  text-align: center;
+}

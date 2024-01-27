@@ -7,13 +7,14 @@ import adafruit_tca9548a
 import adafruit_mlx90614
 import Adafruit_DHT
 from Adafruit_DHT import DHT11 as AdafruitDHT11
-
+#from services.bano import params_pid
 # Definición de pines para las electroválvulas y sensores de flujo
+#data = params_pid()
 valvula_agua_fria_pin = 21
 valvula_agua_caliente_pin = 20
 sensor_flujo_fria_pin = 5
 sensor_flujo_caliente_pin = 6
-
+tiempo_final = False
 # Configuración de electroválvulas
 valvula_agua_fria = DigitalOutputDevice(valvula_agua_fria_pin)
 valvula_agua_caliente = DigitalOutputDevice(valvula_agua_caliente_pin, active_high=False)
@@ -122,53 +123,67 @@ def controlar_temperatura_caliente(setpoint):
     except KeyboardInterrupt:
         apagar_valvula(valvula_agua_caliente, "caliente")
 
+#función para verificar el tiempo corrido
+def verifica_tiempo(tiempo_funcionamiento):
+    global tiempo_final
+    sleep(tiempo_funcionamiento)
+    tiempo_final=True
+
 # Función principal del programa
-def main():
-    try:
-        # Iniciar hilos para medir la temperatura de tanque y caliente
-        hilo_temperatura_tanque = Thread(target=medir_temperatura_tanque)
-        hilo_temperatura_caliente = Thread(target=medir_temperatura_caliente)
-        hilo_temperatura_fria = Thread(target=medir_temperatura_fria)
+def main(data):
+    global tiempo_final
+    while True:
+        try:
+            # Iniciar hilos para medir la temperatura de tanque y caliente
+            hilo_temperatura_tanque = Thread(target=medir_temperatura_tanque)
+            hilo_temperatura_caliente = Thread(target=medir_temperatura_caliente)
+            hilo_temperatura_fria = Thread(target=medir_temperatura_fria)
 
-        hilo_temperatura_tanque.start()
-        hilo_temperatura_caliente.start()
-        hilo_temperatura_fria.start()
+            hilo_temperatura_tanque.start()
+            hilo_temperatura_caliente.start()
+            hilo_temperatura_fria.start()
 
-        # Mostrar temperaturas iniciales
-        sleep(1)  # Esperar un poco para permitir que los hilos obtengan las primeras mediciones
-        print("Temperatura Inicial Tanque:", temperatura_tanque, "°C")
-        print("Temperatura Inicial Caliente:", temperatura_caliente, "°C")
-        print("Temperatura Inicial Fria:", temperatura_fria, "°C")
+            # Mostrar temperaturas iniciales
+            sleep(1)  # Esperar un poco para permitir que los hilos obtengan las primeras mediciones
+            print("Temperatura Inicial Tanque:", temperatura_tanque, "°C")
+            print("Temperatura Inicial Caliente:", temperatura_caliente, "°C")
+            print("Temperatura Inicial Fria:", temperatura_fria, "°C")
 
-        # Ingresar el set point de temperatura y tiempo de funcionamiento
-        setpoint = float(input("Ingrese el set point de temperatura: "))
-        tiempo_funcionamiento = int(input("Ingrese el tiempo de funcionamiento en minutos: ")) * 60
+            # Ingresar el set point de temperatura y tiempo de funcionamiento
+            setpoint = float(data.get("temperature",0))
+            #setpoint = float(input("Ingrese el set point de temperatura: "))
+            tiempo_funcionamiento = int(data.get("duracion",0))*60
+            #tiempo_funcionamiento = int(input("Ingrese el tiempo de funcionamiento en minutos: ")) * 60
+            hilo_verifica_tiempo = Thread(target=verifica_tiempo, args=(tiempo_funcionamiento,))
+            hilo_verifica_tiempo.start()
 
-        # Iniciar hilos para controlar la temperatura y medir el flujo
-        hilo_control_fria = Thread(target=controlar_temperatura_fria, args=(setpoint,))
-        hilo_control_caliente = Thread(target=controlar_temperatura_caliente, args=(setpoint,))
-        hilo_medir_flujo_fria = Thread(target=medir_flujo, args=(sensor_flujo_fria, "fria", tiempo_funcionamiento))
-        hilo_medir_flujo_caliente = Thread(target=medir_flujo, args=(sensor_flujo_caliente, "caliente", tiempo_funcionamiento))
+            # Iniciar hilos para controlar la temperatura y medir el flujo
+            hilo_control_fria = Thread(target=controlar_temperatura_fria, args=(setpoint,))
+            hilo_control_caliente = Thread(target=controlar_temperatura_caliente, args=(setpoint,))
+            hilo_medir_flujo_fria = Thread(target=medir_flujo, args=(sensor_flujo_fria, "fria", tiempo_funcionamiento))
+            hilo_medir_flujo_caliente = Thread(target=medir_flujo, args=(sensor_flujo_caliente, "caliente", tiempo_funcionamiento))
 
-        # Iniciar los hilos
-        hilo_control_fria.start()
-        hilo_control_caliente.start()
-        hilo_medir_flujo_fria.start()
-        hilo_medir_flujo_caliente.start()
+            # Iniciar los hilos
+            hilo_control_fria.start()
+            hilo_control_caliente.start()
+            hilo_medir_flujo_fria.start()
+            hilo_medir_flujo_caliente.start()
 
-        # Esperar a que los hilos terminen
-        hilo_control_fria.join()
-        hilo_control_caliente.join()
-        hilo_medir_flujo_fria.join()
-        hilo_medir_flujo_caliente.join()
+            # Esperar a que los hilos terminen
+            hilo_control_fria.join()
+            hilo_control_caliente.join()
+            hilo_medir_flujo_fria.join()
+            hilo_medir_flujo_caliente.join()
 
-    except KeyboardInterrupt:
-        pass
+        except KeyboardInterrupt:
+            pass
 
-    finally:
-        # Apagar todas las electroválvulas antes de salir
-        valvula_agua_fria.off()
-        valvula_agua_caliente.off()
+        finally:
+            # Apagar todas las electroválvulas antes de salir
+            if tiempo_final:    
+                valvula_agua_fria.off()
+                valvula_agua_caliente.off()
+                tiempo_final = False
 
 if __name__ == "__main__":
-    main()
+    pass

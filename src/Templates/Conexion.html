@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
+    <title>loTShower</title>
+   
+    <link href="{{ url_for('static', filename='img/loTShower_Blanco.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles_Conexion.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/loTShower_Blanco.svg') }}">
+    <form action="/my-handling-form-page" method="post"></form>
+</head>
+<body>
+    <!---->
+    <nav>
+        <div class="iot-shower-box">
+          <h2><img src="{{ url_for('static', filename='img/Pato_azul.svg') }}">     loTShower</h2>
+          <div id="menu-icon"><strong>&#9776;</strong></div>
+          <div id="submenu">
+              <a href="{{ url_for('dash')}}"><img src="{{ url_for('static', filename='img/lotshower_gris.svg') }}">  Principal</a>
+              <div class="divider"></div>
+              <a href="{{ url_for('profile')}}"><img src="{{ url_for('static', filename='img/Perfil_gris.svg') }}">  Perfil</a>
+              <div class="divider"></div>
+              <a href="{{ url_for('bano') }}"><img src="{{ url_for('static', filename='img/Baño.svg') }}">  Baños</a>
+              <div class="divider"></div>
+              <a href="{{ url_for('ducha') }}"><img src="{{ url_for('static', filename='img/Ducha.svg') }}"> Ducha</a>
+              <div class="divider"></div>
+              <a href="{{ url_for('info') }}"><img src="{{ url_for('static', filename='img/Info.svg') }}"> Información</a>
+              <div class="divider"></div>
+              <a href="{{ url_for('conect') }}"><img src="{{ url_for('static', filename='img/Conexion.svg') }}"> Conexión</a>
+              <div class="divider"></div>
+              <a href="{{ url_for('logout') }}"><img src="{{ url_for('static', filename='img/Conexion.svg') }}" alt=""> Cerrar sesión</a>
+          </div>
+        </div>
+    </nav>
+
+<!-- Tabla -->
+<table border="0" class="resumen-table02">
+    <thead>
+      <tr>
+        <th>Estado De Los Sensore</th>
+        <th>Datos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="data-cell">Flujo De Agua Fría</td>
+        <td class="data-cell">Valor</td>
+      </tr>
+      <tr>
+        <td class="data-cell">Flujo De Agua Caliente</td>
+        <td class="data-cell">Valor</td>
+      </tr>
+      <tr>
+        <td class="data-cell">Flujo De Agua Salida</td>
+        <td class="data-cell">Valor</td>
+      </tr>
+      <tr>
+        <td class="data-cell">Conexión Wi-Fi</td>
+        <td class="data-cell">Valor</td>
+      </tr>
+      <tr>
+        <td class="data-cell">Red/Ip</td>
+        <td class="data-cell">Valor</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="Vector1"></div>
+
+    <div class="TemperaturaSalida">
+      <div class="Blanco">
+        <p>Temperatura Salida</p>
+      </div>
+      <div class="columna2">
+        <p>20°C</p>
+      </div>
+    </div>
+    <div class="TempAguaCaliente">
+      <div class="Azul">
+        <p>Temp. Agua Caliente</p>
+      </div>
+      <div class="columna2">
+        <p>20°C</p>
+      </div>
+    </div>
+    <div class="TempAguaFria">
+      <div class="Blanco">
+        <p>Temp. Agua Fria</p>
+      </div>
+      <div class="columna2">
+        <p>20°C</p>
+      </div>
+    </div> 
+    <div class="ValvulaFria">
+      <div class="Azul2">
+        <p>Valvula Fria</p>
+      </div>
+      <div class="columna3">
+        <button class="button-toggle" id="button1">ON</button>
+        <button class="button-toggle2" id="button2">OFF</button>
+      </div>
+    </div>
+    <div class="ValvulaCaliente">
+      <div class="Blanco2">
+        <p>Valvula Caliente</p>
+      </div>
+      <div class="columna3">
+        <button class="button-toggle" id="button1">ON</button>
+        <button class="button-toggle2" id="button2">OFF</button>
+      </div>
+    </div>
+    <div class="LedRGB">
+      <div class="Azul">
+        <p>Led RGB</p>
+      </div>
+      <div class="columna3">
+        <div class="input-container">
+          <input type="number" id="RED" name="RED" min="0" max="100" placeholder="RED" required>
+          <input type="number" id="GREEN" name="GREEN" min="0" max="100" placeholder="GREEN" required>
+          <input type="number" id="BLACK" name="BLACK" min="0" max="100" placeholder="BLACK" required>
+        </div>
+      </div>
+  </div>
+
+
+    <div class="navigation">
+      <ul>
+        <li class="list active">
+            <a href="{{ url_for('dash') }}">
+            <span class="icon"><img src="{{ url_for('static', filename='img/lotshower_gris.svg') }}"></span>
+            <span class="text">Principal</span>
+            </a>
+        </li>
+        <li class="list">
+            <a href="{{ url_for('profile')}}">
+            <span class="icon"><img src="{{ url_for('static', filename='img/Perfil_gris.svg') }}"></span>
+            <span class="text">Perfil</span>
+            </a>
+        </li>
+        <li class="list">
+            <a href="{{ url_for('bano') }}">
+            <span class="icon"><img src="{{ url_for('static', filename='img/Baño.svg') }}"></span>
+            <span class="text">Baños</span>
+            </a>
+        </li>
+        <li class="list">
+            <a href="{{ url_for('ducha') }}">
+            <span class="icon"><img src="{{ url_for('static', filename='img/Ducha.svg') }}"></span>
+            <span class="text">Ducha</span>
+            </a>
+        </li>
+        <li class="list">
+            <a href="{{ url_for('info') }}">
+            <span class="icon"><img src="{{ url_for('static', filename='img/Info.svg') }}"></span>
+            <span class="text">Info</span>
+            </a>
+        </li>
+        <li class="list">
+            <a href="{{ url_for('conect') }}">
+            <span class="icon"><img src="{{ url_for('static', filename='img/Conexion.svg') }}"></span>
+            <span class="text">Conexion</span>
+            </a>
+        </li>
+        <div class="indicator"></div>
+    </ul>
+    </div>
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+</body>
+</html>

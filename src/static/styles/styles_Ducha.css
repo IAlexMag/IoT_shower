@@ -158,17 +158,13 @@ input {
     font-size: 20px;
   }
    
-  #slider {
-    width: 320px;
-    height: 18px;
-    flex-shrink: 0;
-    background-color: #887d7de3;
-    position: relative;
-    align-items: center;
-    border-radius: 10px;
-    background: #ECEFF1;
-   background: linear-gradient(270deg, #F00  0%, #00199D 100%);
-  }
+  .slider{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 50px;
+   /* background:linear-gradient(270deg,#f00 0%,#00199D 100%);*/
+}
   
   .thumb {
     width: 20px; 

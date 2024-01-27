@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
+
+    <title>loTShower</title>
+    <link href="{{ url_for('static', filename='img/loTShower_Blanco.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles_info.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/loTShower_Blanco.svg') }}">
+    <form action="/my-handling-form-page" method="post"></form>
+</head>
+<body>
+
+    <nav>
+        <div class="iot-shower-box">
+            <h2><img src="{{ url_for('static', filename='img/Pato_azul.svg') }}">     loTShower</h2>
+            <div id="menu-icon"><strong>&#9776;</strong></div>
+            <div id="submenu">
+                <a href="{{ url_for('dash')}}"><img src="{{ url_for('static', filename='img/lotshower_gris.svg') }}">  Principal</a>
+                <div class="divider"></div>
+                <a href="{{ url_for('profile')}}"><img src="{{ url_for('static', filename='img/Perfil_gris.svg') }}">  Perfil</a>
+                <div class="divider"></div>
+                <a href="{{ url_for('bano') }}"><img src="{{ url_for('static', filename='img/Baño.svg') }}">  Baños</a>
+                <div class="divider"></div>
+                <a href="{{ url_for('ducha') }}"><img src="{{ url_for('static', filename='img/Ducha.svg') }}"> Ducha</a>
+                <div class="divider"></div>
+                <a href="{{ url_for('info') }}"><img src="{{ url_for('static', filename='img/Info.svg') }}"> Información</a>
+                <div class="divider"></div>
+                <a href="{{ url_for('conect') }}"><img src="{{ url_for('static', filename='img/Conexion.svg') }}"> Conexión</a>
+                <div class="divider"></div>
+                <a href="{{ url_for('logout') }}"><img src="{{ url_for('static', filename='img/Conexion.svg') }}" alt=""> Cerrar sesión</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="Tipo_Baño">
+        <h1>Tipos de Baño</h1>
+      </div>
+
+<div class="container">
+    <div class="product">
+            <div>Relajante</div>
+        </div>
+    </div>
+    <!-- Cuadro de texto -->
+    <div class="cuadro-texto">
+        Sumérgete en una experiencia sensorial única mientras el agua tibia acaricia tu piel,proporcionando un oasis de calma y bienestar.
+    </div>
+
+
+    <!-- Cuadro de texto -->
+    <div class="container01">
+        <div class="product01">
+                <div>Rápido</div>
+            </div>
+        </div>
+        <div class="cuadro-texto01">
+            Disfruta de una ducha eficiente que revitaliza en minutos,
+            permitiéndote ahorrar tiempo sin comprometer la frescura 
+            y limpieza diaria.
+        </div>
+
+
+    <div class="container02">
+            <div class="product02">
+                    <div>Ahorro de agua</div>
+                </div>
+            </div>
+            <div class="cuadro-texto02">
+                Contribuye al medio ambiente y ahorra recursos con un baño que utiliza tecnologías innovadoras para reducir el consumo de agua, sin sacrificar la calidad y eficacia.
+            </div>
+ 
+     <div class="container03">
+                    <div class="product03">
+                    <div>Frío</div>
+                    </div>
+                </div>
+                <div class="cuadro-texto03">
+                    Refréscate con una ducha revitalizante de agua fría, estimulando tus sentidos y energizando tu cuerpo para enfrentar cualquier desafío.
+                </div>
+     <div class="container04">
+                    <div class="product04">
+                    <div>Caliente</div>
+                    </div>
+                </div>
+                <div class="cuadro-texto04">
+                    Sumérgete en la indulgencia de un baño caliente que alivia tensiones musculares, brindando un momento de relajación profunda y confort.
+                </div> 
+ 
+    <div class="container05">
+                    <div class="product05">
+                    <div>Inteligente</div>
+                    </div>
+                </div>
+                <div class="cuadro-texto05">
+                    Experimenta la vanguardia tecnológica con un baño inteligente que ajusta la temperatura y el flujo de agua de manera óptima, brindándote una experiencia personalizada y eficiente.
+                </div>
+
+    <div class="navigation">
+        <ul>
+            <li class="list">
+                <a href="{{ url_for('dash')}}">
+                <span class="icon"><img src="{{ url_for('static', filename='img/lotshower_gris.svg') }}"></span>
+                <span class="text">Principal</span>
+                </a>
+            </li>
+            <li class="list active">
+                <a href="{{ url_for('profile') }}">
+                <span class="icon"><img src="{{ url_for('static', filename='img/Perfil_gris.svg') }}"></span>
+                <span class="text">Perfil</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="{{ url_for('bano') }}">
+                <span class="icon"><img src="{{ url_for('static', filename='img/Baño.svg') }}"></span>
+                <span class="text">Baños</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="{{ url_for('ducha') }}">
+                <span class="icon"><img src="{{ url_for('static', filename='img/Ducha.svg') }}"></span>
+                <span class="text">Ducha</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="{{ url_for('info') }}">
+                <span class="icon"><img src="{{ url_for('static', filename='img/Info.svg') }}"></span>
+                <span class="text">Info</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="{{ url_for('conect') }}">
+                <span class="icon"><img src="{{ url_for('static', filename='img/Conexion.svg') }}"></span>
+                <span class="text">Conexion</span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+    </div>
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+</body>
+</html>
